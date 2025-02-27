@@ -1,0 +1,29 @@
+
+loginpage : 
+    customer_login :
+        by : 'XPATH'
+        value : "//h2[text()='Customer Login']"
+    username :
+        by : 'NAME'
+        value : 'username'
+    password :
+        by : 'NAME'
+        value : 'password'
+    login_button :
+        by : 'CLASS_NAME'
+        value : 'button'
+    register_link :
+        by : 'LINK_TEXT'
+        value : 'Register'
+    login_verification :
+        by : 'CSS_SELECTOR'
+        value : 'p.smallText'
+    account_number :
+        by : 'XPATH'
+        value : "//a[contains(@href,'activity.htm?id=')]"
+    balance : 
+        by : 'XPATH'
+        value : "//tbody/tr[1]/td[2]"
+    available_balance : 
+        by : 'XPATH'
+        value : "//tbody/tr[1]/td[3]"
