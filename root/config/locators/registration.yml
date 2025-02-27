@@ -1,0 +1,64 @@
+
+registration :
+    register_link :
+        by : 'LINK_TEXT'
+        value : 'Register'
+    customer_login :
+        by : 'XPATH'
+        value : "//h2[text()='Customer Login']"
+    register_page_title :
+        by : 'xpath'
+        value : "//h1[contains(text(),'Signing up is easy!')]"
+    first_name :
+        by : 'ID'
+        value : 'customer.firstName'
+    last_name :
+        by : 'ID'
+        value : 'customer.lastName'
+    address : 
+        by : 'ID'
+        value : 'customer.address.street'
+    city : 
+        by : 'ID'
+        value : 'customer.address.city'
+    state :
+        by : 'ID'
+        value : 'customer.address.state'
+    zip_code :
+        by : 'ID'
+        value : 'customer.address.zipCode'
+    phone :
+        by : 'ID'
+        value : 'customer.phoneNumber'
+    ssn_number : 
+        by : 'ID'
+        value : 'customer.ssn'
+    user_name : 
+        by : 'ID'
+        value : 'customer.username'
+    password : 
+        by : 'ID'
+        value : 'customer.password'
+    repeate_password :
+        by : 'ID'
+        value : 'repeatedPassword'
+    register_button : 
+        by : 'XPATH'
+        value : "//input[@class='button' and @value='Register']"
+    user_create :
+        by : 'CLASS_NAME'
+        value : 'title'
+    logout_link :
+        by : 'LINK_TEXT'
+        value : 'Log Out'
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
