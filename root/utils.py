@@ -62,4 +62,5 @@ class Utils(object):
 # ##locator=ut.get_page_locators("registration")
 # user_data=ut.load_excel_data()
 # print(user_data)
+# ut.visit_page()
     
