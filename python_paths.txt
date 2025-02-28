@@ -1,0 +1,4 @@
+-P D:\eclipse\eclipse-jee-2023-03-R-win32-x86_64\API\python_selen_robot_framework_parabank\
+-P D:\eclipse\eclipse-jee-2023-03-R-win32-x86_64\API\python_selen_robot_framework_parabank\root\
+-P D:\eclipse\eclipse-jee-2023-03-R-win32-x86_64\API\python_selen_robot_framework_parabank\root\test_cases\
+-P D:\eclipse\eclipse-jee-2023-03-R-win32-x86_64\API\python_selen_robot_framework_parabank\root\test_suites\
