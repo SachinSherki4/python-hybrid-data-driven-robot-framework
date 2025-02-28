@@ -44,15 +44,25 @@ class Utils(object):
             return page_locators[locator_page_name]
 
 
-    def launch_browser(self,base_url):
-        if self.browser.lower()=="chrome":
-            driver=webdriver.Chrome()
+            """For headless browser testing use Options """
+    def launch_browser(self,base_url,browser):
+        if browser=="Chrome":
+            options=webdriver.ChromeOptions()
+            options.add_argument("--headless")
+            driver=webdriver.Chrome(options=options)
+            #driver=webdriver.Chrome()
             return self.visit_page(driver,base_url)
-        elif self.browser.lower()=="firefox":
-            driver=webdriver.Firefox()
+        elif browser=="Firefox":
+            options=webdriver.FirefoxOptions()
+            options.add_argument("--headless")
+            driver=webdriver.Firefox(options=options)
+            #driver=webdriver.Firefox()
             return self.visit_page(driver,base_url)
-        elif self.browser.lower() =="edge":
-            driver=webdriver.Edge()
+        elif browser =="Edge":
+            options=webdriver.EdgeOptions()
+            options.add_argument("--headless")
+            driver=webdriver.Edge(options=options)
+            #driver=webdriver.Edge()
             return self.visit_page(driver,base_url)
         else:
             print("Please specify the browser in config. file")

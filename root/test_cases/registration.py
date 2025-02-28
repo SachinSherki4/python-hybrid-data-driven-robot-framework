@@ -21,11 +21,11 @@ class Registration():
         return getattr(By,locator_info['by'].upper()),locator_info['value']
 
     
-    def test_register_new_user(self,user_id):
+    def test_register_new_user(self,user_id, browser_name=None):
         user_data=self.user_data[int(user_id)-1]
         # print(type(user_id))
         # print(type(int(user_id)))
-        driver=self.config.launch_browser(self.config.base_url)
+        driver=self.config.launch_browser(self.config.base_url,browser_name)
         assert True if driver.title == "ParaBank | Welcome | Online Banking" else print(AssertionError("Home Page Not Found"))
         driver.find_element(*self.get_element('register_link')).click()
         assert True if driver.title =="ParaBank | Register for Free Online Account Access" else print(AssertionError("Register Page Not Found"))
