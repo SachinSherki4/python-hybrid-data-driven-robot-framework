@@ -2,7 +2,10 @@ import os
 from pathlib import Path
 from openpyxl import load_workbook
 from selenium import webdriver
+import random
+import string
 import yaml
+from ntpath import join
 
 
 class Utils(object):
@@ -58,6 +61,12 @@ class Utils(object):
         driver.maximize_window()
         driver.get(base_url)
         return driver
+    
+    def get_random_strin(self,length):
+        random_string=""
+        for _ in range(length):
+            random_string +="".join(random.choice(string.ascii_letters+string.ascii_letters))
+        return random_string
 # ut=Utils()
 # ##locator=ut.get_page_locators("registration")
 # user_data=ut.load_excel_data()

@@ -21,8 +21,10 @@ class Registration():
         return getattr(By,locator_info['by'].upper()),locator_info['value']
 
     
-    def register_new_user(self):
-        user_data=self.user_data[2]
+    def test_register_new_user(self,user_id):
+        user_data=self.user_data[int(user_id)-1]
+        # print(type(user_id))
+        # print(type(int(user_id)))
         driver=self.config.launch_browser(self.config.base_url)
         assert True if driver.title == "ParaBank | Welcome | Online Banking" else print(AssertionError("Home Page Not Found"))
         driver.find_element(*self.get_element('register_link')).click()
@@ -35,22 +37,22 @@ class Registration():
         driver.find_element(*self.get_element('zip_code')).send_keys(user_data['Zip_Code'])
         driver.find_element(*self.get_element('phone')).send_keys(user_data['Phone'])
         driver.find_element(*self.get_element('ssn_number')).send_keys(user_data['SSN_Number'])
-        driver.find_element(*self.get_element('user_name')).send_keys(user_data['Username'].strip())
+        username_string=self.config.get_random_strin(3)
+        driver.find_element(*self.get_element('user_name')).send_keys(user_data['Username'].strip()+username_string)
         driver.find_element(*self.get_element('password')).send_keys(user_data['Password'].strip())
         driver.find_element(*self.get_element('repeate_password')).send_keys(user_data['Confirm'].strip())
         driver.find_element(*self.get_element('register_button')).click()
         user_creation=driver.find_element(*self.get_element('user_create'))
-        time.sleep(5)
+        time.sleep(1)
         WebDriverWait(driver,2).until(EC.visibility_of(user_creation))
         assert True if driver.title =="ParaBank | Customer Created" else print(AssertionError("Customer Creation Page Not Found"))
-        assert True if user_creation.text == f"Welcome {user_data['Username'].strip()}" else print(AssertionError(f"User {user_data['Username'].strip()} Not Created"))
+        assert True if user_creation.text == f"Welcome {user_data['Username'].strip()+username_string}" else print(AssertionError(f"User {user_data['Username'].strip()} Not Created"))
         driver.find_element(*self.get_element('logout_link')).click()
         home_page=driver.find_element(*self.get_element('customer_login'))
         WebDriverWait(driver,2).until(EC.visibility_of(home_page))
         assert True if driver.title == "ParaBank | Welcome | Online Banking" else print(AssertionError("Home Page Not Found"))
         driver.close()
-    def rregistering_existing_user(self):
-        pass
+    
         
 # reg=Registration()
-# reg.register_new_user()
+# reg.test_register_new_user("1")

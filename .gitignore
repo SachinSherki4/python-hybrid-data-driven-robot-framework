@@ -16,3 +16,7 @@ __pycache__/
 # Ignore environment files
 .env
 config.json
+
+# dont ignore python_paths.txt file
+*.txt
+!python_paths.txt
